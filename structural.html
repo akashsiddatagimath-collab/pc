@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structural Design Services | Patil Construction & Interior</title>
+    <meta name="description"
+        content="Professional structural design and engineering services - Safe, durable, and efficient structural solutions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .service-detail-hero {
+            background: linear-gradient(135deg, #7b4b2a 0%, #a0522d 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+        }
+
+        .service-detail-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-detail-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .service-detail-content {
+            padding: 80px 0;
+        }
+
+        .service-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .service-detail-text h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-detail-text p {
+            color: black;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .service-features li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text);
+        }
+
+        .service-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #a0522d;
+            font-weight: bold;
+        }
+
+        .service-detail-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-detail-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .service-cta {
+            background: var(--bg-light);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .service-cta h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-cta p {
+            color: black;
+            margin-bottom: 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .service-detail-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .service-detail-hero h1 {
+                font-size: 2rem;
+            }
+
+            .service-detail-image {
+                order: -1;
+            }
+        }
+
+        /* Project Gallery Styles */
+        .project-gallery {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .gallery-subtitle {
+            text-align: center;
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            margin-top: -2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-image {
+            overflow: hidden;
+            height: 220px;
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-card:hover .gallery-image img {
+            transform: scale(1.1);
+        }
+
+        .gallery-info {
+            padding: 1.5rem;
+        }
+
+        .gallery-info h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .gallery-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo_new.png" alt="Patil Construction Logo" class="logo-img">
+                <div class="logo-text-wrapper">
+                    <span class="logo-text">Patil</span><span class="logo-accent">Construction</span>
+                    <span class="logo-subtext">& Interior</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="service-detail-hero">
+        <div class="container">
+            <a href="index.html#services" class="back-link">← Back to Services</a>
+            <h1>🏛️ Structural Design</h1>
+            <p>Safe, durable, and efficient structural engineering solutions</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="service-detail-content">
+        <div class="container">
+            <div class="service-detail-grid">
+                <div class="service-detail-text">
+                    <h2>Engineering Strength & Safety</h2>
+                    <p>Our structural design services ensure that every building we create is safe, stable, and built to
+                        last. Our experienced civil engineers analyze loads, materials, and environmental factors to
+                        create optimal structural solutions.</p>
+                    <p>From residential homes to multi-story commercial buildings, we provide comprehensive structural
+                        design services that meet all safety codes and regulations while optimizing material usage and
+                        costs.</p>
+
+                    <ul class="service-features">
+                        <li>RCC structural design and detailing</li>
+                        <li>Foundation design and analysis</li>
+                        <li>Column, beam, and slab design</li>
+                        <li>Steel structure design</li>
+                        <li>Load calculation and analysis</li>
+                        <li>Seismic-resistant design</li>
+                        <li>Structural drawings and specifications</li>
+                        <li>Site supervision for structural work</li>
+                    </ul>
+                </div>
+                <div class="service-detail-image">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop"
+                        alt="Structural Design Services">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Gallery Section -->
+    <section class="project-gallery">
+        <div class="container">
+            <h2 class="section-title">Structural Engineering Projects</h2>
+            <p class="gallery-subtitle">Strong foundations and safe structures</p>
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=300&fit=crop"
+                            alt="Steel Structure">
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Steel Framework</h4>
+                        <p>Heavy-duty steel structural design</p>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=400&h=300&fit=crop"
+                            alt="Foundation">
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Foundation Work</h4>
+                        <p>Deep foundation engineering</p>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1590496793929-36417d3117de?w=400&h=300&fit=crop"
+                            alt="RCC Structure">
+                    </div>
+                    <div class="gallery-info">
+                        <h4>RCC Construction</h4>
+                        <p>Reinforced concrete structures</p>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1586861203927-800a5acdcc4d?w=400&h=300&fit=crop"
+                            alt="Column Design">
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Column & Beam Design</h4>
+                        <p>Optimized load-bearing structures</p>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop"
+                            alt="High Rise">
+                    </div>
+                    <div class="gallery-info">
+                        <h4>High-Rise Engineering</h4>
+                        <p>Multi-story structural solutions</p>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=400&h=300&fit=crop"
+                            alt="Seismic Design">
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Earthquake Resistant</h4>
+                        <p>Seismic-safe structural design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <h3>Need Expert Structural Design?</h3>
+            <p style="color: #000000 !important;">Our engineers ensure your structure is safe and efficient</p>
+            <a href="index.html#contact" class="btn btn-primary">Consult Engineer</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-column footer-center">
+                    <div class="footer-logo">
+                        <img src="assets/logo_new.png" alt="Patil Construction Logo" class="footer-logo-img">
+                        <div class="footer-logo-text">
+                            <span class="primary">Patil</span><span class="accent">Construction</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Patil Construction & Interior is your one-stop solution for all construction and interior needs,
+                        providing comprehensive, turnkey, end-to-end services across Karnataka.
+                    </p>
+                    <div class="footer-gst">GST: 29ABHFP8635L1ZG</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="footer-copyright">© 2023 Patil Construction & Interior. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms & Conditions</a>
+                    </div>
+                    <p class="footer-credit">Designed & Developed by <a href="https://wa.me/919632150834"
+                            target="_blank">Patil Construction</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

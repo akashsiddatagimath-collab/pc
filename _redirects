@@ -1,0 +1,6 @@
+# Netlify redirects
+# Redirect /admin to login page
+/admin    /login.html    200
+
+# Handle SPA-style routing
+/*    /index.html    200

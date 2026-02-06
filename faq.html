@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Patil Construction & Interior</title>
+    <meta name="description" content="Frequently Asked Questions about Patil Construction & Interior services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .faq-hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.9)),
+                url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 140px 0 70px;
+            text-align: left;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #f39c12;
+        }
+
+        .breadcrumb span {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .faq-hero h1 {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .faq-hero .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+        }
+
+        .faq-content {
+            padding: 60px 0 80px;
+            background: #fff;
+        }
+
+        .faq-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .faq-intro h2 {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .faq-intro p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-category {
+            margin-bottom: 2.5rem;
+        }
+
+        .faq-category h3 {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent);
+            display: inline-block;
+        }
+
+        .faq-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #1a1a1a;
+            background: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #f8f9fa;
+        }
+
+        .faq-question.active {
+            background: var(--accent);
+            color: #1a1a1a;
+            border-color: var(--accent);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .faq-question .icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active .icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 1.5rem;
+            border: 1px solid #e9ecef;
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .faq-answer p {
+            color: #444;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .faq-answer ul {
+            margin: 0.5rem 0 0 1.5rem;
+            color: #444;
+        }
+
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .contact-cta {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .contact-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-cta p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-cta .btn {
+            background: var(--accent);
+            color: #1a1a1a;
+            padding: 15px 35px;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .contact-cta .btn:hover {
+            background: #b5952f;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .faq-hero h1 {
+                font-size: 2rem;
+            }
+
+            .faq-intro h2 {
+                font-size: 1.6rem;
+            }
+
+            .faq-question {
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .faq-answer.active {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo_new.png" alt="Patil Construction Logo" class="logo-img">
+                <div class="logo-text-wrapper">
+                    <span class="logo-text">Patil</span><span class="logo-accent">Construction</span>
+                    <span class="logo-subtext">& Interior</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="faq-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>FAQ</span>
+            </div>
+            <h1>Frequently Asked Questions</h1>
+            <p class="subtitle">Find answers to common questions about our services</p>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="faq-content">
+        <div class="container">
+            <div class="faq-intro">
+                <h2>How Can We Help You?</h2>
+                <p>Browse through our frequently asked questions to find the information you need. If you can't find
+                    what you're looking for, feel free to contact us directly.</p>
+            </div>
+
+            <div class="faq-container">
+                <!-- General Questions -->
+                <div class="faq-category">
+                    <h3>General Questions</h3>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What services does Patil Construction & Interior offer?</span>
+                            <span class="icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer a comprehensive range of services including:</p>
+                            <ul>
+                                <li>Residential & Commercial Construction</li>
+                                <li>Interior Design & Decoration</li>
+                                <li>2D & 3D Architectural Drawings</li>
+                                <li>Structural Design & Engineering</li>
+                                <li>Vastu Planning & Consultation</li>
+                                <li>Material Supply & Procurement</li>
+                                <li>Project Consultancy</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Which areas do you serve?</span>
+                            <span class="icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We primarily serve clients across Karnataka, with a strong presence in Belagavi,
+                                Bagalkot, Mudhol, and surrounding areas. We also undertake projects in other parts of
+                                Karnataka based on project requirements.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How can I get a quote for my project?</span>
+                            <span class="icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Getting a quote is easy! You can:</p>
+                            <ul>
+                                <li>Fill out our contact form on the website</li>
+                                <li>Call us directly at +91 96321 50834</li>
+                                <li>Message us on WhatsApp</li>
+                                <li>Visit our office for a personal consultation</li>
+                            </ul>
+                            <p>We'll schedule a site visit if needed and provide a detailed quotation based on your
+                                requirements.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Construction Questions -->
+                <div class="faq-category">
+                    <h3>Construction Services</h3>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How long does a typical construction project take?</span>
+                            <span class="icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Project timelines vary based on the scope and complexity:</p>
+                            <ul>
+                                <li><strong>Small residential (1000-1500 sq ft):</strong> 6-8 months</li>
+                                <li><strong>Large residential (2000+ sq ft):</strong> 10-14 months</li>
+                                <li><strong>Commercial projects:</strong> Timeline depends on specifications</li>
+                            </ul>
+                            <p>We provide a detailed project timeline during the planning phase and keep you updated on
+                                progress throughout.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you provide a warranty on construction work?</span>
+                            <span class="icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we provide workmanship warranty on all our construction projects. The warranty
+                                period is specified in the project agreement and typically covers structural defects and
+                                workmanship issues. Material warranties are as per the manufacturer's terms.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What is the payment structure for construction projects?</span>
+                            <span class="icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our payment structure is milestone-based:</p>
+                            <ul>
+                                <li><strong>Advance:</strong> 10-20% at project commencement</li>
+                                <li><strong>Foundation stage:</strong> 15-20%</li>
+                                <li><strong>Superstructure:</strong> 20-25%</li>
+                                <li><strong>Finishing stage:</strong> 25-30%</li>
+                                <li><strong>Handover:</strong> Remaining balance</li>
+                            </ul>
+                            <p>Exact percentages may vary based on project specifics and will be detailed in the
+                                agreement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Design Questions -->
+                <div class="faq-category">
+                    <h3>Interior Design</h3>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you handle complete interior design or specific rooms only?</span>
+                            <span class="icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer both options! Whether you need a complete home interior makeover or want to
+                                redesign specific spaces like kitchen, bedroom, or living room, we can help. Our
+                                interior design services are flexible and tailored to your needs and budget.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What is included in your interior design package?</span>
+                            <span class="icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our comprehensive interior design package includes:</p>
+                            <ul>
+                                <li>Initial consultation and space analysis</li>
+                                <li>2D and 3D design visualizations</li>
+                                <li>Material and color palette selection</li>
+                                <li>Furniture layout and recommendations</li>
+                                <li>Lighting design</li>
+                                <li>Execution and project management</li>
+                                <li>Quality checks and final walkthrough</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I see designs before execution starts?</span>
+                            <span class="icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! We provide detailed 3D renderings and visualizations of your space before any
+                                execution begins. You'll have the opportunity to review, suggest changes, and approve
+                                the final design. We believe in complete transparency and ensuring you're 100% satisfied
+                                with the design before we start work.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vastu & Consultation -->
+                <div class="faq-category">
+                    <h3>Vastu & Consultation</h3>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you incorporate Vastu principles in your designs?</span>
+                            <span class="icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we offer Vastu-compliant design solutions for clients who wish to incorporate
+                                traditional Vastu Shastra principles into their homes or commercial spaces. Our team
+                                includes Vastu experts who can guide you on optimal placement of rooms, entrances, and
+                                other elements as per Vastu guidelines while maintaining modern aesthetics.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I get only consultation without construction services?</span>
+                            <span class="icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we offer standalone consultation services. Whether you need expert advice on
+                                construction planning, design concepts, material selection, cost estimation, or Vastu
+                                guidance, our consultation services are available independently. This is ideal for
+                                clients who want professional guidance but plan to execute through other channels.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2>Still Have Questions?</h2>
+            <p>Can't find the answer you're looking for? Our team is here to help. Get in touch with us and we'll get
+                back to you as soon as possible.</p>
+            <a href="index.html#contact" class="btn">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-column footer-center">
+                    <div class="footer-logo">
+                        <img src="assets/logo_new.png" alt="Patil Construction Logo" class="footer-logo-img">
+                        <div class="footer-logo-text">
+                            <span class="primary">Patil</span><span class="accent">Construction</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Patil Construction & Interior is your one-stop solution for all construction and interior needs,
+                        providing comprehensive, turnkey, end-to-end services across Karnataka.
+                    </p>
+                    <div class="footer-gst">GST: 29ABHFP8635L1ZG</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="footer-copyright">© 2023 Patil Construction & Interior. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms & Conditions</a>
+                    </div>
+                    <p class="footer-credit">Designed & Developed by <a href="https://wa.me/919632150834"
+                            target="_blank">Patil Construction</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+
+                // Close all other FAQs
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('active');
+                });
+
+                // Toggle current FAQ
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
